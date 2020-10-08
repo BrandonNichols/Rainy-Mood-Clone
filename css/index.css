@@ -77,18 +77,25 @@ select {
   }
 }
 
-.rain-background {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+html {
+  font-size: 100%;
 }
 
-.rain-background-overlay {
-  position: fixed;
-  z-index: 10;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rain-background {
+  position: absolute;
+  z-index: -10;
+  right: 0;
+  bottom: 0;
   min-width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0);
+  min-height: 100vh;
+}
+
+#time-h1 {
+  font-size: 4rem;
 }
