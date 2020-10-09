@@ -1,7 +1,9 @@
 $(document).ready(function () {
-  function clock() {
-    const $timeDiv = $("#time-h1");
+  const $timeDiv = $("#time-h1");
 
+  $timeDiv.attr("draggable", "true");
+
+  function clock() {
     let currentTime = new Date();
     let hours = currentTime.getHours();
     let minutes = currentTime.getMinutes();
@@ -11,6 +13,10 @@ $(document).ready(function () {
 
     setTimeout(clock, 500);
   }
+
+  // $timeDiv.mousedown(function(e){
+
+  // })
 
   clock();
 });
