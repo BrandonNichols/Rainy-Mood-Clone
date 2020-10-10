@@ -98,4 +98,5 @@ body {
 
 #time-h1 {
   font-size: 4rem;
+  -webkit-user-drag: none;
 }
