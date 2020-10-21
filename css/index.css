@@ -103,3 +103,7 @@ body {
   color: transparent;
   font-family: "Roboto Mono", monospace;
 }
+
+.hide-video {
+  display: none;
+}
