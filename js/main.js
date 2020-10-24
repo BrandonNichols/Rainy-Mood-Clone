@@ -1,5 +1,9 @@
 $(document).ready(function () {
   const $timeDiv = $("#time-h1");
+  const $videoButton = $("#play-video");
+  const $rainVideo = $(".rain-video");
+  let videoPlaying = false;
+
   const clockState = {
     offSetX: 0,
     offSetY: 0,
@@ -47,6 +51,20 @@ $(document).ready(function () {
 
   $timeDiv.mouseup(function () {
     clockState.isDragging = false;
+  });
+
+  $videoButton.click(function (e) {
+    e.preventDefault();
+    if (!videoPlaying) {
+      $rainVideo.attr(
+        "src",
+        "https://www.youtube.com/embed/SDmbGrQqWog?autoplay=1&loop=1"
+      );
+      videoPlaying = true;
+    } else {
+      $rainVideo.attr("src", "https://www.youtube.com/embed/SDmbGrQqWog");
+      videoPlaying = false;
+    }
   });
 
   clock();
