@@ -1,7 +1,30 @@
+let player;
+
+var tag = document.createElement("script");
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("player", {
+    height: "315",
+    width: "560",
+    videoId: "N-OYsfDUtZQ",
+    events: {
+      onReady: onPlayerReady
+    }
+  });
+}
+
+function onPlayerReady(e) {
+  e.target.playVideo();
+}
+
 $(document).ready(function () {
   const $timeDiv = $("#time-h1");
   const $videoButton = $("#play-video");
-  const $rainVideo = $(".rain-video");
+  const $rainVideo = $("#rain-video");
   let videoPlaying = false;
 
   const clockState = {
@@ -53,19 +76,19 @@ $(document).ready(function () {
     clockState.isDragging = false;
   });
 
-  $videoButton.click(function (e) {
-    e.preventDefault();
-    if (!videoPlaying) {
-      $rainVideo.attr(
-        "src",
-        "https://www.youtube.com/embed/SDmbGrQqWog?autoplay=1&loop=1"
-      );
-      videoPlaying = true;
-    } else {
-      $rainVideo.attr("src", "https://www.youtube.com/embed/SDmbGrQqWog");
-      videoPlaying = false;
-    }
-  });
+  // $videoButton.click(function (e) {
+  //   e.preventDefault();
+  //   if (!videoPlaying) {
+  //     $rainVideo.attr(
+  //       "src",
+  //       "https://www.youtube.com/embed/SDmbGrQqWog?autoplay=1&loop=1"
+  //     );
+  //     videoPlaying = true;
+  //   } else {
+  //     $rainVideo.attr("src", "https://www.youtube.com/embed/SDmbGrQqWog");
+  //     videoPlaying = false;
+  //   }
+  // });
 
   clock();
 });
