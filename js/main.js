@@ -10,15 +10,14 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
     height: "315",
     width: "560",
-    videoId: "N-OYsfDUtZQ",
     events: {
       onReady: onPlayerReady
     }
   });
 }
 
-function onPlayerReady(e) {
-  e.target.playVideo();
+function onPlayerReady() {
+  player.loadVideoById("N-OYsfDUtZQ", 8);
 }
 
 $(document).ready(function () {
@@ -76,19 +75,16 @@ $(document).ready(function () {
     clockState.isDragging = false;
   });
 
-  // $videoButton.click(function (e) {
-  //   e.preventDefault();
-  //   if (!videoPlaying) {
-  //     $rainVideo.attr(
-  //       "src",
-  //       "https://www.youtube.com/embed/SDmbGrQqWog?autoplay=1&loop=1"
-  //     );
-  //     videoPlaying = true;
-  //   } else {
-  //     $rainVideo.attr("src", "https://www.youtube.com/embed/SDmbGrQqWog");
-  //     videoPlaying = false;
-  //   }
-  // });
+  $videoButton.click(function (e) {
+    e.preventDefault();
+    if (!videoPlaying) {
+      player.playVideo();
+      videoPlaying = true;
+    } else {
+      player.pauseVideo();
+      videoPlaying = false;
+    }
+  });
 
   clock();
 });
