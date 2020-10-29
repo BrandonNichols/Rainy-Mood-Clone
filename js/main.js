@@ -22,7 +22,8 @@ function onPlayerReady() {
 
 $(document).ready(function () {
   const $timeDiv = $("#time-h1");
-  const $videoButton = $("#play-video");
+  const $playVideo = $("#play-video");
+  const $pauseVideo = $("#pause-video");
   const $rainVideo = $("#rain-video");
   let videoPlaying = false;
 
@@ -75,15 +76,24 @@ $(document).ready(function () {
     clockState.isDragging = false;
   });
 
-  $videoButton.click(function (e) {
+  $playVideo.click(function (e) {
     e.preventDefault();
-    if (!videoPlaying) {
-      player.playVideo();
-      videoPlaying = true;
-    } else {
-      player.pauseVideo();
-      videoPlaying = false;
-    }
+    // if (!videoPlaying) {
+    player.playVideo();
+    $pauseVideo.removeClass("hide-button");
+    $playVideo.addClass("hide-button");
+    // videoPlaying = true;
+    // } else {
+    //   player.pauseVideo();
+    //   videoPlaying = false;
+    // }
+  });
+
+  $pauseVideo.click(function (e) {
+    e.preventDefault();
+    player.pauseVideo();
+    $playVideo.removeClass("hide-button");
+    $pauseVideo.addClass("hide-button");
   });
 
   clock();
