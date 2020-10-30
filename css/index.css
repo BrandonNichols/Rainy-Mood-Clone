@@ -81,11 +81,11 @@ html {
   font-size: 100%;
 }
 
-body {
+/* body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .rain-background {
   position: absolute;
@@ -98,6 +98,7 @@ body {
 
 #time-h1 {
   font-size: 4rem;
+  z-index: 10;
   -webkit-user-drag: none;
   -webkit-text-stroke: 1px black;
   color: transparent;
@@ -110,4 +111,17 @@ body {
 
 .hide-button {
   display: none;
+}
+
+.button-border {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 30%;
+  left: 45%;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 10px solid white;
 }
